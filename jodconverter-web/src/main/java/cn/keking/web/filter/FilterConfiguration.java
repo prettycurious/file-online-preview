@@ -9,7 +9,6 @@ import java.util.Set;
 
 
 /**
- *
  * @author yudian-it
  * @date 2017/11/30
  */
@@ -29,6 +28,7 @@ public class FilterConfiguration {
     public FilterRegistrationBean getTrustHostFilter() {
         Set<String> filterUri = new HashSet<>();
         filterUri.add("/onlinePreview");
+        filterUri.add("/preview/*");
         filterUri.add("/picturesPreview");
         filterUri.add("/getCorsFile");
         filterUri.add("/addTask");
@@ -44,6 +44,7 @@ public class FilterConfiguration {
         Set<String> filterUri = new HashSet<>();
         filterUri.add("/index");
         filterUri.add("/onlinePreview");
+        filterUri.add("/preview/*");
         filterUri.add("/picturesPreview");
         BaseUrlFilter filter = new BaseUrlFilter();
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
@@ -56,6 +57,7 @@ public class FilterConfiguration {
     public FilterRegistrationBean getWatermarkConfigFilter() {
         Set<String> filterUri = new HashSet<>();
         filterUri.add("/onlinePreview");
+        filterUri.add("/preview/*");
         filterUri.add("/picturesPreview");
         WatermarkConfigFilter filter = new WatermarkConfigFilter();
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();

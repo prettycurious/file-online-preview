@@ -3,6 +3,7 @@ package cn.keking.config;
 import org.artofsolving.jodconverter.office.OfficeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -28,6 +29,10 @@ public class ConfigRefreshComponent {
     }
 
     static class ConfigRefreshThread implements Runnable {
+
+        @Value("${spring.config.location}")
+        private String configFilePath;
+
         @Override
         public void run() {
             try {
@@ -41,7 +46,8 @@ public class ConfigRefreshComponent {
                 String ftpUsername;
                 String ftpPassword;
                 String ftpControlEncoding;
-                String configFilePath = OfficeUtils.getCustomizedConfigPath();
+//                String configFilePath = OfficeUtils.getCustomizedConfigPath();
+                String configFilePath = "config/application.properties";
                 String baseUrl;
                 String trustHost;
                 String pdfDownloadDisable;
